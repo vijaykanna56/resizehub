@@ -1,1 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Resize your images online for free without losing quality. Change image dimensions in pixels or percentages. Secure, fast, and 100% offline in your browser.">
+    <meta name="keywords" content="resize image, picture resizer, change image dimensions, online image resizer, offline image tool">
+    <meta name="author" content="ResizeHub">
+    
+    <title>Resize Image Online - Fast, Free & No Quality Loss | ResizeHub</title>
+    
+    <link rel="canonical" href="https://resizehub.com/tools/image/resize-image/">
+    
+    <meta property="og:title" content="Resize Image Online - Fast & Free Picture Resizer">
+    <meta property="og:description" content="Resize your images instantly in your browser without losing quality. Completely offline and secure.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://resizehub.com/tools/image/resize-image/">
+    <meta property="og:image" content="https://resizehub.com/assets/images/og-resize-image.png">
+    <meta property="og:site_name" content="ResizeHub">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Resize Image Online">
+    <meta name="twitter:description" content="Resize your images instantly in your browser. Secure and offline.">
+    <meta name="twitter:image" content="https://resizehub.com/assets/images/twitter-resize-image.png">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Resize Image",
+      "alternateName": "ResizeHub Picture Resizer",
+      "url": "https://resizehub.com/tools/image/resize-image/",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "All",
+      "description": "A professional browser-based tool to resize images in pixels or percentages without server uploads.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "creator": {
+        "@type": "Organization",
+        "name": "ResizeHub"
+      }
+    }
+    </script>
+    
+    <link rel="stylesheet" href="../../../assets/css/main.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <header class="site-header" role="banner">
+        <div class="container header-inner">
+            <div class="site-logo">
+                <a href="../../../" aria-label="ResizeHub Homepage">
+                    <svg width="180" height="40" viewBox="0 0 180 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <rect width="40" height="40" rx="8" fill="var(--primary-color)"/>
+                        <path d="M12 28L28 12M28 12V24M28 12H16" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        <text x="50" y="28" fill="var(--text-main)" font-size="24" font-weight="bold" font-family="system-ui, sans-serif">ResizeHub</text>
+                    </svg>
+                </a>
+            </div>
+            <nav class="main-navigation" aria-label="Primary Navigation">
+                <ul>
+                    <li><a href="../../../">Home</a></li>
+                    <li><a href="../../">All Tools</a></li>
+                    <li><a href="../">Image Tools</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
+    <main id="main-content" role="main">
+        <div class="container main-container">
+            
+            <nav aria-label="Breadcrumb" class="breadcrumb">
+                <ol>
+                    <li><a href="../../../">Home</a></li>
+                    <li><a href="../../">Tools</a></li>
+                    <li><a href="../">Image</a></li>
+                    <li><span aria-current="page">Resize Image</span></li>
+                </ol>
+            </nav>
+
+            <header class="tool-header">
+                <h1 class="tool-title">Resize Image</h1>
+                <p class="tool-description">Easily scale your pictures up or down in pixels or percentages. Fast, secure, and powered locally in your browser.</p>
+            </header>
+
+            <section class="workspace-section" aria-label="Image Resizer Workspace">
+                
+                <div id="upload-container" class="upload-area" role="button" tabindex="0" aria-label="Drag and drop or select an image to upload">
+                    <div class="upload-prompt">
+                        <svg class="upload-icon" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                            <polyline points="21 15 16 10 5 21"></polyline>
+                        </svg>
+                        <h2 class="upload-title">Drag & Drop image here</h2>
+                        <span class="upload-divider">or</span>
+                        <label for="image-upload-input" class="btn btn-primary browse-btn">Browse Files</label>
+                        <input type="file" id="image-upload-input" class="visually-hidden" accept="image/jpeg, image/png, image/webp, image/gif">
+                        <p class="upload-formats">Supported formats: JPG, PNG, WEBP, GIF</p>
+                    </div>
+                </div>
+
+                <div id="editor-container" class="editor-area hidden" aria-live="polite">
+                    <div class="editor-grid">
+                        
+                        <div class="preview-card" aria-label="Image Preview Area">
+                            <div class="canvas-wrapper">
+                                <canvas id="image-canvas" aria-label="Interactive image preview"></canvas>
+                            </div>
+                            <div class="image-stats" id="size-estimation-card">
+                                <div class="stat-item">
+                                    <span class="stat-label">Original:</span>
+                                    <span class="stat-value" id="stat-original-size">-- KB</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Estimated Output:</span>
+                                    <span class="stat-value highlight" id="stat-new-size">-- KB</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <aside class="controls-sidebar" aria-label="Resizer Controls">
+                            
+                            <fieldset class="control-group">
+                                <legend class="group-title">Resize Options</legend>
+                                
+                                <div class="tabs" role="tablist" aria-label="Resize methods">
+                                    <button type="button" role="tab" aria-selected="true" aria-controls="panel-pixels" id="tab-pixels" class="tab-btn active">By Pixels</button>
+                                    <button type="button" role="tab" aria-selected="false" aria-controls="panel-percentage" id="tab-percentage" class="tab-btn">By Percentage</button>
+                                </div>
+
+                                <div id="panel-pixels" role="tabpanel" aria-labelledby="tab-pixels" class="tab-panel">
+                                    <div class="dimension-inputs">
+                                        <div class="input-wrapper">
+                                            <label for="resize-width">Width (px)</label>
+                                            <input type="number" id="resize-width" class="form-input" min="1" step="1">
+                                        </div>
+                                        
+                                        <div class="aspect-ratio-lock">
+                                            <button type="button" id="btn-lock-ratio" class="btn-icon active" aria-pressed="true" aria-label="Maintain aspect ratio" title="Maintain Aspect Ratio">
+                                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        
+                                        <div class="input-wrapper">
+                                            <label for="resize-height">Height (px)</label>
+                                            <input type="number" id="resize-height" class="form-input" min="1" step="1">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="panel-percentage" role="tabpanel" aria-labelledby="tab-percentage" class="tab-panel hidden">
+                                    <div class="input-wrapper">
+                                        <div class="slider-header">
+                                            <label for="resize-percentage">Scale</label>
+                                            <span id="percentage-output" aria-live="polite">100%</span>
+                                        </div>
+                                        <input type="range" id="resize-percentage" class="form-range" min="1" max="300" value="100">
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <fieldset class="control-group">
+                                <legend class="group-title">Export Settings</legend>
+                                
+                                <div class="input-wrapper">
+                                    <label for="export-format">Output Format</label>
+                                    <div class="select-wrapper">
+                                        <select id="export-format" class="form-select">
+                                            <option value="image/jpeg">JPG</option>
+                                            <option value="image/png">PNG</option>
+                                            <option value="image/webp">WEBP</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="input-wrapper" id="quality-control-wrapper">
+                                    <div class="slider-header">
+                                        <label for="export-quality">Quality</label>
+                                        <span id="quality-output" aria-live="polite">90%</span>
+                                    </div>
+                                    <input type="range" id="export-quality" class="form-range" min="10" max="100" value="90">
+                                </div>
+                            </fieldset>
+
+                            <div class="action-buttons">
+                                <button type="button" id="btn-download" class="btn btn-primary btn-block btn-large">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                        <polyline points="7 10 12 15 17 10"></polyline>
+                                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                                    </svg>
+                                    Download Image
+                                </button>
+                                <button type="button" id="btn-reset" class="btn btn-secondary btn-block">Upload New Image</button>
+                            </div>
+                        </aside>
+                    </div>
+                </div>
+            </section>
+
+            <section id="faq" class="info-section">
+                <header class="section-header">
+                    <h2>Frequently Asked Questions</h2>
+                </header>
+                <div class="faq-accordion" role="presentation">
+                    <article class="faq-item">
+                        <h3>
+                            <button class="faq-toggle" aria-expanded="false" aria-controls="faq-content-1">
+                                Are my images secure?
+                                <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </button>
+                        </h3>
+                        <div id="faq-content-1" class="faq-content" hidden>
+                            <p>Absolutely. ResizeHub uses client-side architecture (HTML5 Canvas API) to process your images directly in your web browser. Your files are <strong>never</strong> uploaded to any server.</p>
+                        </div>
+                    </article>
+                    
+                    <article class="faq-item">
+                        <h3>
+                            <button class="faq-toggle" aria-expanded="false" aria-controls="faq-content-2">
+                                Will resizing my image reduce its quality?
+                                <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </button>
+                        </h3>
+                        <div id="faq-content-2" class="faq-content" hidden>
+                            <p>Making an image smaller generally keeps it crisp, though it discards pixel data to reduce file size. Making an image larger than its original size may result in blurriness. You can control the output compression using the Quality slider for JPG and WEBP formats.</p>
+                        </div>
+                    </article>
+                    
+                    <article class="faq-item">
+                        <h3>
+                            <button class="faq-toggle" aria-expanded="false" aria-controls="faq-content-3">
+                                Why isn't the quality slider available for PNG?
+                                <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </button>
+                        </h3>
+                        <div id="faq-content-3" class="faq-content" hidden>
+                            <p>PNG is a lossless image format, meaning it preserves all image data without compression artifacts. Because it doesn't compress data by sacrificing visual quality, the slider is disabled when PNG is selected as the output format.</p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section id="related-tools" class="info-section">
+                <header class="section-header">
+                    <h2>More Image Tools</h2>
+                </header>
+                <div class="tool-grid">
+                    <a href="../crop-image/" class="tool-card-link">
+                        <article class="tool-card">
+                            <div class="tool-card-icon" aria-hidden="true">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.13 1L6 16a2 2 0 0 0 2 2h15"></path><path d="M1 6.13L16 6a2 2 0 0 1 2 2v15"></path></svg>
+                            </div>
+                            <h3>Crop Image</h3>
+                            <p>Trim unnecessary edges and focus on the important details.</p>
+                        </article>
+                    </a>
+                    <a href="../compress-image/" class="tool-card-link">
+                        <article class="tool-card">
+                            <div class="tool-card-icon" aria-hidden="true">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"></path><path d="M19 12l-7 7-7-7"></path></svg>
+                            </div>
+                            <h3>Compress Image</h3>
+                            <p>Drastically reduce file size for web optimization.</p>
+                        </article>
+                    </a>
+                    <a href="../convert-image/" class="tool-card-link">
+                        <article class="tool-card">
+                            <div class="tool-card-icon" aria-hidden="true">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2v6h-6"></path><path d="M3 12a9 9 0 0 1 15-6.7L21 8"></path><path d="M3 22v-6h6"></path><path d="M21 12a9 9 0 0 1-15 6.7L3 16"></path></svg>
+                            </div>
+                            <h3>Convert Image</h3>
+                            <p>Change your photos between JPG, PNG, WEBP, and GIF formats.</p>
+                        </article>
+                    </a>
+                </div>
+            </section>
+            
+        </div>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <p class="copyright">&copy; <time datetime="2026">2026</time> ResizeHub. All rights reserved.</p>
+            </div>
+            <nav class="footer-nav" aria-label="Footer Navigation">
+                <ul>
+                    <li><a href="../../../privacy.html">Privacy Policy</a></li>
+                    <li><a href="../../../terms.html">Terms of Service</a></li>
+                    <li><a href="../../../contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+
+    <script type="module" src="../../../assets/js/main.js"></script>
+    <script type="module" src="script.js"></script>
+</body>
+  </html>
