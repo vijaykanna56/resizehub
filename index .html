@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ResizeHub - Premium Sizing Platform & Exam Compliance Suite</title>
+  <!-- Global Styling Sheet -->
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <!-- Premium Header & Logo -->
+  <header>
+    <div class="header-container">
+      <a href="/" class="logo-section" id="logoLink">
+        <div class="logo-icon">RH</div>
+        <div class="logo-text">
+          <h1>ResizeHub</h1>
+          <p>OFFLINE EXAM COMPLIANCE</p>
+        </div>
+      </a>
+      <div class="header-actions">
+        <button class="btn" id="openConsoleBtn">
+          <i data-lucide="terminal"></i> Architecture Console
+        </button>
+        <a href="tools/image-tools/resize-image/index.html" class="btn btn-blue" id="directResizerBtn">
+          <i data-lucide="image-plus"></i> Launch Resizer
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Google AdSense Wrapper - Top (CLS-Safe) -->
+  <div class="adsense-wrapper adsense-top" id="topAdSlot">
+    <div class="adsense-placeholder-content">
+      <p style="font-family: var(--font-mono); font-size: 10px;">RESPONSIVE LEADERBOARD PLACEHOLDER</p>
+      <p style="font-size: 11px;">Fixed dimensions prevent Cumulative Layout Shift (CLS) for optimal Core Web Vitals SEO ranking.</p>
+    </div>
+  </div>
+
+  <main>
+    <!-- Hero Header & Global Search Engine -->
+    <section class="hero" id="heroSection">
+      <h2>Seamless Sizing & Exam Compliance Suite</h2>
+      <p>A completely serverless compliance workspace that runs 100% locally in your browser. Complete offline privacy—no files ever leave your device.</p>
+      
+      <div class="search-container">
+        <div class="search-input-wrapper">
+          <i data-lucide="search" class="search-icon"></i>
+          <input type="text" id="searchInput" class="search-input" placeholder="Search 85+ active compliance tools, file types, or exams...">
+        </div>
+        <div class="tag-suggestions">
+          <span class="tag-label">Try quick tags:</span>
+          <button class="search-tag" onclick="triggerTagSearch('Resize Photo')">Resize Photo</button>
+          <button class="search-tag" onclick="triggerTagSearch('Signature')">Signature Maker</button>
+          <button class="search-tag" onclick="triggerTagSearch('UPSC')">UPSC Specs</button>
+          <button class="search-tag" onclick="triggerTagSearch('PDF')">PDF Combiner</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Indian Government Exams Compliance Dashboard -->
+    <section class="compliance-section" id="complianceDashboard">
+      <div class="section-title">
+        <i data-lucide="shield-check" style="width: 24px; height: 24px;"></i>
+        <h2>Indian Government Exams Spec Engine</h2>
+      </div>
+
+      <div class="compliance-grid">
+        <!-- Selector Sidebar -->
+        <div class="compliance-sidebar">
+          <span class="sidebar-heading">Select Authority Board</span>
+          
+          <button class="exam-btn active" data-exam="ssc" id="examBtnSsc">
+            <div class="exam-info">
+              <h4>SSC Presets</h4>
+              <p>Staff Selection Commission</p>
+            </div>
+            <i data-lucide="chevron-right" style="width: 16px; height: 16px;"></i>
+          </button>
+
+          <button class="exam-btn" data-exam="ibps" id="examBtnIbps">
+            <div class="exam-info">
+              <h4>IBPS Presets</h4>
+              <p>Institute of Banking Personnel</p>
+            </div>
+            <i data-lucide="chevron-right" style="width: 16px; height: 16px;"></i>
+          </button>
+
+          <button class="exam-btn" data-exam="upsc" id="examBtnUpsc">
+            <div class="exam-info">
+              <h4>UPSC Presets</h4>
+              <p>Union Public Service Commission</p>
+            </div>
+            <i data-lucide="chevron-right" style="width: 16px; height: 16px;"></i>
+          </button>
+
+          <button class="exam-btn" data-exam="rrb" id="examBtnRrb">
+            <div class="exam-info">
+              <h4>RRB Presets</h4>
+              <p>Railway Recruitment Board</p>
+            </div>
+            <i data-lucide="chevron-right" style="width: 16px; height: 16px;"></i>
+          </button>
+
+          <button class="exam-btn" data-exam="statePolice" id="examBtnPolice">
+            <div class="exam-info">
+              <h4>State Police Presets</h4>
+              <p>State Police Constable & SI</p>
+            </div>
+            <i data-lucide="chevron-right" style="width: 16px; height: 16px;"></i>
+          </button>
+        </div>
+
+        <!-- Spec Values Details -->
+        <div class="compliance-main">
+          <div class="tabs">
+            <button class="tab-btn active" data-tab="photo" id="tabPhoto">
+              <i data-lucide="user"></i> Photo Guidelines
+            </button>
+            <button class="tab-btn" data-tab="signature" id="tabSignature">
+              <i data-lucide="edit-3"></i> Signature Specs
+            </button>
+          </div>
+
+          <div class="specs-display" id="specsDisplayContainer">
+            <h3 style="font-size: 18px; margin-bottom: 12px; color: var(--text-primary);" id="specExamName">SSC (Staff Selection Commission)</h3>
+            <span style="font-family: var(--font-mono); font-size: 11px; color: var(--accent-blue); font-weight: 600; letter-spacing: 0.05em;" id="specTabName">PHOTO GUIDELINES</span>
+            
+            <div class="spec-row">
+              <div class="spec-label">
+                <i data-lucide="move" style="width: 16px; height: 16px; color: var(--text-muted);"></i> Metric Dimensions
+              </div>
+              <div class="spec-value" id="specWidthCm">3.5 cm</div>
+              <div style="font-size: 12px; color: var(--text-muted);">by</div>
+              <div class="spec-value" id="specHeightCm">4.5 cm</div>
+            </div>
+
+            <div class="spec-row">
+              <div class="spec-label">
+                <i data-lucide="monitor" style="width: 16px; height: 16px; color: var(--text-muted);"></i> Resolution Target
+              </div>
+              <div class="spec-value" id="specWidthPx">350 px</div>
+              <div style="font-size: 12px; color: var(--text-muted);">by</div>
+              <div class="spec-value" id="specHeightPx">450 px</div>
+            </div>
+
+            <div class="spec-row">
+              <div class="spec-label">
+                <i data-lucide="hard-drive" style="width: 16px; height: 16px; color: var(--text-muted);"></i> Permitted Weight
+              </div>
+              <div class="spec-value size-highlight" id="specWeightRange">20KB - 50KB</div>
+            </div>
+
+            <div class="spec-row">
+              <div class="spec-label">
+                <i data-lucide="palette" style="width: 16px; height: 16px; color: var(--text-muted);"></i> Ink / Background
+              </div>
+              <div class="spec-value" id="specInk">White Background</div>
+            </div>
+
+            <div class="spec-notes" id="specNotes">
+              Focus face 80% with white back-drop. Ensure glasses do not trigger lens flare reflections. Caps and spectacles forbidden.
+            </div>
+
+            <div style="margin-top: 16px;">
+              <a href="tools/image-tools/resize-image/index.html" class="btn btn-blue" style="width: 100%; justify-content: center;" id="complyResizerBtn">
+                <i data-lucide="crop"></i> Format Submission Now
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Live Visual Blueprint Aspect Box -->
+        <div class="compliance-visualizer" id="complianceVisualizer">
+          <span class="sidebar-heading">Interactive Blueprint</span>
+          <div class="canvas-container" id="blueprintContainer">
+            <canvas id="blueprintCanvas"></canvas>
+          </div>
+          <div class="blueprint-meta">
+            <h5>REAL-TIME PREVIEW COMPILER</h5>
+            <p style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">Canvas adapts dynamically to the target aspect ratios.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Google AdSense Wrapper - Middle (CLS-Safe) -->
+    <div class="adsense-wrapper adsense-middle" id="middleAdSlot">
+      <div class="adsense-placeholder-content">
+        <p style="font-family: var(--font-mono); font-size: 10px;">RESPONSIVE MIDDLE RECTANGLE AD</p>
+        <p style="font-size: 11px;">Min-height container protects layout shift index completely.</p>
+      </div>
+    </div>
+
+    <!-- Filter Pills & Tools Catalog Grid -->
+    <section id="catalog-section">
+      <div class="filters-container">
+        <div class="filter-pills">
+          <button class="filter-pill active" data-filter="all" id="filterAll">All Tools</button>
+          <button class="filter-pill" data-filter="popular" id="filterPopular">Most Popular</button>
+          <button class="filter-pill" data-filter="gov" id="filterGov">Government Specs</button>
+          <button class="filter-pill" data-filter="new" id="filterNew">Newly Added</button>
+        </div>
+        <div class="catalog-stats" id="catalogStats">
+          SHOWING 85 OF 85 PRE-CONFIGURED TOOLS
+        </div>
+      </div>
+
+      <!-- Bento Grid populated by JS -->
+      <div class="bento-grid" id="bentoGrid">
+        <!-- Cards will load here programmatically -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Google AdSense Wrapper - Footer (CLS-Safe) -->
+  <div class="adsense-wrapper adsense-footer" id="footerAdSlot">
+    <div class="adsense-placeholder-content">
+      <p style="font-family: var(--font-mono); font-size: 10px;">RESPONSIVE FOOTER AD BANNER</p>
+      <p style="font-size: 11px;">Maintains 0.00 CLS score for ideal PageSpeed metrics.</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-logo">
+        <div class="footer-logo-icon">R</div>
+        <span>ResizeHub</span>
+      </div>
+      <p class="footer-text">ResizeHub is a premium, client-side sizing platform. All operations execute fully in local memory. We never upload your sensitive personal documents, passport pictures, or electronic signatures to any remote servers. Absolute security and privacy, guaranteed by offline design.</p>
+      <p style="font-size: 11px; color: var(--text-muted); font-family: var(--font-mono);">Licensed under Apache-2.0 • 100% Serverless Environment</p>
+    </div>
+  </footer>
+
+  <!-- 1. Technical Blueprint Console Modal -->
+  <div class="modal-overlay" id="consoleModal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 style="display: flex; align-items: center; gap: 8px;"><i data-lucide="terminal" style="color: var(--accent-blue);"></i> Architecture Workspace</h3>
+        <button class="modal-close" id="closeConsoleBtn"><i data-lucide="x" style="width: 20px; height: 20px;"></i></button>
+      </div>
+      <div class="modal-body">
+        <h4 style="font-size: 15px; margin-bottom: 8px; color: var(--text-primary);">GitHub Directory Structure</h4>
+        <div class="structure-tree">
+├── index.html                  # Core landing hub &amp; search engine
+├── style.css                   # Global styling sheet, bento layouts &amp; variables
+├── script.js                   # Client-side fuzzy search engine &amp; exam specifications
+└── tools/                      # Independent tool directories
+    └── image-tools/
+        └── resize-image/       # Standalone Sizing Tool
+            ├── index.html      # Tool interface
+            ├── style.css       # Tool specific layout
+            └── script.js       # HTML5 Canvas resizing engine
+        </div>
+
+        <h4 style="font-size: 15px; margin-bottom: 8px; color: var(--text-primary); margin-top: 18px;">Design Tokens (CSS Variables)</h4>
+        <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 8px;">Prism Slate Theme configuration variables utilized throughout all modules:</p>
+        <div class="token-preview-grid">
+          <div class="token-color">
+            <div class="color-dot" style="background-color: #f8fafc;"></div>
+            <div class="token-info">
+              <h6>--bg-primary</h6>
+              <span>#f8fafc (Slate 50)</span>
+            </div>
+          </div>
+          <div class="token-color">
+            <div class="color-dot" style="background-color: #ffffff;"></div>
+            <div class="token-info">
+              <h6>--bg-secondary</h6>
+              <span>#ffffff (White)</span>
+            </div>
+          </div>
+          <div class="token-color">
+            <div class="color-dot" style="background-color: #0f172a;"></div>
+            <div class="token-info">
+              <h6>--accent-color</h6>
+              <span>#0f172a (Charcoal)</span>
+            </div>
+          </div>
+          <div class="token-color">
+            <div class="color-dot" style="background-color: #2563eb;"></div>
+            <div class="token-info">
+              <h6>--accent-blue</h6>
+              <span>#2563eb (Royal Blue)</span>
+            </div>
+          </div>
+          <div class="token-color">
+            <div class="color-dot" style="background-color: #10b981;"></div>
+            <div class="token-info">
+              <h6>--success-color</h6>
+              <span>#10b981 (Emerald)</span>
+            </div>
+          </div>
+          <div class="token-color">
+            <div class="color-dot" style="background-color: #cbd5e1;"></div>
+            <div class="token-info">
+              <h6>--border-color</h6>
+              <span>#cbd5e1 (Slate 300)</span>
+            </div>
+          </div>
+        </div>
+
+        <h4 style="font-size: 15px; margin-bottom: 8px; color: var(--text-primary); margin-top: 24px;">Routing Specification Pipeline</h4>
+        <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.5;">This workspace functions as a browser-native router. Because every tool lives in its own folder, searching matches identifiers and resolves slugs down to localized directories. Selecting custom exam criteria pre-wires specific aspect configurations in memory before passing control blocks to the standalone <strong>HTML5 Resizer Engine</strong> inside <code>/tools/image-tools/resize-image/</code>.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Tool Routing / Redirect Modal (For catalog items) -->
+  <div class="modal-overlay" id="toolRedirectModal">
+    <div class="modal-container" style="max-width: 500px;">
+      <div class="modal-header" style="border: none; padding-bottom: 0;">
+        <div style="flex-grow: 1;"></div>
+        <button class="modal-close" onclick="closeToolRedirectModal()"><i data-lucide="x" style="width: 20px; height: 20px;"></i></button>
+      </div>
+      <div class="modal-body" id="toolRedirectModalBody" style="padding-top: 0;">
+        <!-- Filled programmatically in script.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Lucide Vector Icons Library via unpkg CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Global Searching and specification scripts -->
+  <script src="/script.js"></script>
+</body>
+</html>
