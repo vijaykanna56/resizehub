@@ -1,6 +1,0 @@
-{
-  "name": "ResizeHub",
-  "description": "Premium Offline-First Sizing Platform & Government Exam Compliance Suite with 100% local browser processing.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}
